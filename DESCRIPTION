@@ -1,11 +1,11 @@
 Package: LAB5C
 Type: Package
-Title: What the Package Does (Title Case)
+Title: package for lab5
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Group10
+Maintainer: Group10 <zijfe244@student.liu.se>
+Description: Only a function to get the coordinate.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 6.1.0
