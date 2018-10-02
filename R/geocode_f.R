@@ -2,7 +2,7 @@
 #'
 #' The 'geocode_f' contains a function that converts an address to coordinates.
 #'
-#' @field result A data frame contains address, lontitude, latitude
+#' @field result A data frame contains address, lontitude, latitude.
 #' @field addr A character represents address
 #'
 #' @import methods
@@ -36,7 +36,7 @@ geocode_f <- setRefClass("geocode_f",
          json <- rjson::fromJSON(get_url_text)
          if(json$cod==404)
            stop(json$message)
-         result <<- data.frame(addr, json$coord$lon, json$coord$lat)
+         result <<- data.frame(addr, lon=json$coord$lon, lat=json$coord$lat)
          result
      }
    )
