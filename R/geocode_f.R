@@ -1,8 +1,9 @@
 #' Coordinates finder
 #'
-#' The 'geocode_func' function is a class that converts an address to coordinates.
+#' The 'geocode_f' contains a function that converts an address to coordinates.
 #'
-#' @field f A data frame
+#' @field result A data frame contains address, lontitude, latitude
+#' @field addr A character represents address
 #'
 #' @import methods
 #' @importFrom httr content GET
@@ -13,44 +14,30 @@
 
 geocode_f <- setRefClass("geocode_f",
    fields = list(
-                 f="data.frame"
+                 addr = "character",
+                 result = "data.frame"
                  ),
    methods = list(
 
-     initialize = function(){
-       cat("User::initialize")
-       f<<- data.frame()
+     initialize = function(input){
+       cat("User::initialize\n")
+       if(!is.character(input))
+       stop("Please check again your input")
+       addr <<- input
+       result <<- data.frame()
      },
 
-     getCoordinate = function(data){
-       if (is.character(data)){
-         data <- as.data.frame(data)
-       }
-       if(data=="" || grepl("[][!#$%()*.:;<=>@^_`|~.{}]", data[,1])==TRUE){
-         stop("Please check again your input")
-       }
-       a<-vector("character")
-       b<-vector("numeric")
-       d<-vector("numeric")
-       for(i in 1:nrow(data)){
-         print("Processing")
-         # key <- "AIzaSyCYgKKt2fn7Crt-V6Hnc5aw5lSfy7XLQ-Y"
-         url<- "http://www.datasciencetoolkit.org/maps/api/geocode/json"
-         json <-rjson::fromJSON(httr::content(httr::GET(url,query=list(sensor="FALSE",address=as.character(data[i,1]))),type="text"))
-         if (json$status=="OK"){
-           loc <- json$results[[1]]$geometry$location
-           a[i]<-as.character(data[i,1])
-           b[i]<-loc$lng
-           d[i]<-loc$lat
-         }else{
-           a[i]<-as.character(data[i,1])
-           b[i]<-NA
-           d[i]<-NA
-         }
-       }
-       f<<-data.frame(a,b,d)
-       names(f) <<- c("Address","Longtitude","Latitude")
-       return(f)
+     getCoordinate = function(){
+         cat("Processing\n")
+         key <- "42db6ca84392bff4038cde9470a0d24c"
+         url<- paste("api.openweathermap.org/data/2.5/weather?q=",addr,"&appid=",key,sep = "")
+         get_url <- httr::GET(url = url)
+         get_url_text <- httr::content(get_url,"text")
+         json <- rjson::fromJSON(get_url_text)
+         if(json$cod==404)
+           stop(json$message)
+         result <<- data.frame(addr, json$coord$lon, json$coord$lat)
+         result
      }
    )
 )

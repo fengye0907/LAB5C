@@ -6,12 +6,14 @@
 \alias{geocode_f}
 \title{Coordinates finder}
 \description{
-The 'geocode_func' function is a class that converts an address to coordinates.
+The 'geocode_f' contains a function that converts an address to coordinates.
 }
 \section{Fields}{
 
 \describe{
-\item{\code{f}}{A data frame}
+\item{\code{result}}{A data frame contains address, lontitude, latitude}
+
+\item{\code{addr}}{A character represents address}
 }}
 
 
