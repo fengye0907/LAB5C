@@ -2,7 +2,7 @@
 #'
 #' The 'geocode_f' contains a function that converts an address to coordinates.
 #'
-#' @field result A data frame contains address, lontitude, latitude.
+#' @field result A data frame contains address, lontitude and latitude.
 #' @field addr A character represents address
 #'
 #' @import methods
