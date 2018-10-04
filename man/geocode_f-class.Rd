@@ -11,7 +11,7 @@ The 'geocode_f' contains a function that converts an address to coordinates.
 \section{Fields}{
 
 \describe{
-\item{\code{result}}{A data frame contains address, lontitude, latitude}
+\item{\code{result}}{A data frame contains address, lontitude, latitude.}
 
 \item{\code{addr}}{A character represents address}
 }}
