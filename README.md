@@ -4,5 +4,5 @@
 
 # Installation
 ``
-    devtools::install_github("fengye0907/LAB3", build_vignettes = TRUE)
+    devtools::install_github("fengye0907/LAB5C", build_vignettes = TRUE)
 ``
