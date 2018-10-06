@@ -20,9 +20,11 @@ geocode_f <- setRefClass("geocode_f",
    methods = list(
 
      initialize = function(input){
+       Sys.setlocale(locale = "english")
        cat("User::initialize\n")
-       if(!is.character(input))
-       stop("Please check again your input")
+
+       if((!is.character(input))||nchar(input)<=0)
+        stop("Please check again your input")
        addr <<- input
        result <<- data.frame()
      },
