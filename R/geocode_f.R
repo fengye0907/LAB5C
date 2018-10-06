@@ -30,13 +30,13 @@ geocode_f <- setRefClass("geocode_f",
      getCoordinate = function(){
          cat("Processing\n")
          key <- "42db6ca84392bff4038cde9470a0d24c"
-         url<- paste("api.openweathermap.org/data/2.5/weather?q=",addr,"&appid=",key,sep = "")
+         url<- paste("http://api.openweathermap.org/data/2.5/forecast?q=",addr,"&APPID=",key,sep = "")
          get_url <- httr::GET(url = url)
          get_url_text <- httr::content(get_url,"text")
          json <- rjson::fromJSON(get_url_text)
          if(json$cod==404)
            stop(json$message)
-         result <<- data.frame(addr, lon=json$coord$lon, lat=json$coord$lat)
+         result <<- data.frame(addr, lon=json$city$coord$lon, lat=json$city$coord$lat)
          result
      }
    )

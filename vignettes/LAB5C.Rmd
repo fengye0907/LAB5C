@@ -1,0 +1,38 @@
+---
+title: "geocode_f"
+author: "Group 10"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{linreg}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+  # Introduction
+  To install this package you can use the code below:
+
+```{r eval=FALSE, message=FALSE, warning=FALSE}
+devtools::install_github('fengye0907/LAB5C',build_vignettes = TRUE)
+```
+This package calculate the Longitude and Latitude corridnates by using free source *API openweathermap*.The openweathermap api has weather data for more then 200,000 cities.Data is available in JSON,XML or HTML format.In this package we have use JSON.To make is this package,the RC object orientation has been used and the output is an object with the class named geocode_f.The object return back a data frame consisting of corrdinates like longitude and latitude based on user input.
+
+# Import
+
+```{r}
+    library(LAB5C)
+```
+
+# Methods
+
+To start with, we can use the initialize the class to input city name to get corridnates.
+
+```{r}
+example <- geocode_f$new("Stockholm")
+example$getCoordinate()
+```
+
+The `print()` method can print out the cooridantes like Longitude and Latitude and city name.
+
+The `summary()` As per this lab assignment we create a package that connect to API and comptute coordinates longitude and latitude form user given input.   
+
+
