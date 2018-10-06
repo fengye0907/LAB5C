@@ -36,7 +36,7 @@ geocode_f <- setRefClass("geocode_f",
          json <- rjson::fromJSON(get_url_text)
          if(json$cod==404)
            stop(json$message)
-         result <<- data.frame(addr, lon=json$city$coord$lon, lat=json$city$coord$lat)
+         result <<- data.frame(addr=json$city$name, lon=json$city$coord$lon, lat=json$city$coord$lat)
          result
      }
    )
