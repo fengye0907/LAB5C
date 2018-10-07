@@ -4,7 +4,7 @@ Title: package for lab5
 Version: 0.1.0
 Author: Group10
 Maintainer: Group10 <zijfe244@student.liu.se>
-Description: Only a function to get the coordinate.
+Description: This package calculate the Longitude and Latitude corridnates by using free source *API openweathermap*.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

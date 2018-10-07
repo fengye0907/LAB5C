@@ -1,6 +1,6 @@
-#' Coordinates finder
+#' Coordinate finder
 #'
-#' The 'geocode_f' contains a function that converts an address to coordinates.
+#' The 'geocode_f' contains a function that converts an address to coordinates using an openweather API.
 #'
 #' @field result A data frame contains address, lontitude, latitude.
 #' @field addr A character represents address
