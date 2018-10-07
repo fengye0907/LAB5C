@@ -27,12 +27,12 @@ This package calculate the Longitude and Latitude corridnates by using free sour
 To start with, we can use the initialize the class to input city name to get corridnates.
 
 ```{r}
-example <- geocode_f$new("Stockholm")
+example <- geocode_f("Stockholm")
 example$getCoordinate()
 ```
 
-The `print()` method can print out the cooridantes like Longitude and Latitude and city name.
+The `geocode_f()` is an initialize method for this lab assignment we create a package that connect to API and comptute coordinates longitude and latitude form user given input. 
 
-The `summary()` As per this lab assignment we create a package that connect to API and comptute coordinates longitude and latitude form user given input.   
+The `getCoordinate()` method can print out the cooridantes like Longitude and Latitude and city name.
 
 

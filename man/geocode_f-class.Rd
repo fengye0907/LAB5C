@@ -4,9 +4,9 @@
 \name{geocode_f-class}
 \alias{geocode_f-class}
 \alias{geocode_f}
-\title{Coordinates finder}
+\title{Coordinate finder}
 \description{
-The 'geocode_f' contains a function that converts an address to coordinates.
+The 'geocode_f' contains a function that converts an address to coordinates using an openweather API.
 }
 \section{Fields}{
 
