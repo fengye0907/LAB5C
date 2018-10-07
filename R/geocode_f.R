@@ -18,7 +18,7 @@ geocode_f <- setRefClass("geocode_f",
                  result = "data.frame"
                  ),
    methods = list(
-
+     # The initialize method
      initialize = function(input){
        Sys.setlocale(locale = "english")
        cat("User::initialize\n")
@@ -28,7 +28,7 @@ geocode_f <- setRefClass("geocode_f",
        addr <<- input
        result <<- data.frame()
      },
-
+     # The method for getting the coordinate
      getCoordinate = function(){
          cat("Processing\n")
          key <- "42db6ca84392bff4038cde9470a0d24c"
